@@ -1,2 +1,5 @@
-#PROMPT= '🚀→'
-PROMPT='%{🚀$fg[cyan]%}[%~% ]%(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
+#!/usr/bin/env zsh
+
+export GEEKS_VERSION?'0.0.1'
+
+PROMPT='%{🚀%(?.%{$fg[green]%}.%{$fg[red]%}) →'
