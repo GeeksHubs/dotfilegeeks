@@ -35,10 +35,10 @@ download() {
         #     │└─ write output to file
         #     └─ don't show output
 
-     #   return $?
+        return $?
     #fi
 
-    return 1
+    #return 1
 
 }
 download_utils() {
