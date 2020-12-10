@@ -1,5 +1,5 @@
 #!/bin/bash
-
+declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/geekshubsacademy/dotfilegeeks/main/src/os/utils.sh"
 
  echo '
  ______  _______  _______  _        _______ 
@@ -11,6 +11,50 @@
 | (___) || (____/\| (____/\|  /  \ \/\____) |
 (_______)(_______/(_______/|_/    \/\_______)
  '                                                                                                                                                             
+
+
+
+download() {
+
+    local url="$1"
+    local output="$2"
+
+    if command -v "curl" &> /dev/null; then
+
+        curl -LsSo "$output" "$url" &> /dev/null
+        #     │││└─ write output to file
+        #     ││└─ show error messages
+        #     │└─ don't show the progress meter
+        #     └─ follow redirects
+
+        return $?
+
+    elif command -v "wget" &> /dev/null; then
+
+        wget -qO "$output" "$url" &> /dev/null
+        #     │└─ write output to file
+        #     └─ don't show output
+
+        return $?
+    fi
+
+    return 1
+
+}
+download_utils() {
+
+    local tmpFile=""
+
+    tmpFile="$(mktemp /tmp/XXXXX)"
+
+    download "$DOTFILES_UTILS_URL" "$tmpFile" \
+        && . "$tmpFile" \
+        && rm -rf "$tmpFile" \
+        && return 0
+
+   return 1
+
+}
 
 
 
@@ -35,6 +79,8 @@ main()
     
     if  [ -x "utils.sh" ]; then
         . $(dirname "$0")/utils.sh || exit 1
+    else
+        download_utils || exit 1
     fi
 
     e_header "Iniciando Instalación" || exit 1
