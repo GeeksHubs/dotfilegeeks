@@ -1,5 +1,5 @@
 #!/bin/bash
-declare -r DOTFILES_UTILS_URL="https://github.com/GeeksHubsAcademy/dotfilegeeks/blob/master/utils.sh"
+declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/GeeksHubsAcademy/dotfilegeeks/master/utils.sh"
 
  echo '
  ______  _______  _______  _        _______ 
@@ -43,7 +43,7 @@ download() {
 }
 download_utils() {
     echo "Descargando utils ->" "$DOTFILES_UTILS_URL"
-    download "$DOTFILES_UTILS_URL" "/home" 
+    download "$DOTFILES_UTILS_URL" "/home/utils.sh" 
     return 1
 
 }
