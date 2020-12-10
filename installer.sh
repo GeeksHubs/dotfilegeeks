@@ -1,5 +1,5 @@
 #!/bin/bash
-declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/geekshubsacademy/dotfilegeeks/main/src/os/utils.sh"
+declare -r DOTFILES_UTILS_URL="https://github.com/GeeksHubsAcademy/dotfilegeeks/blob/master/utils.sh"
 
  echo '
  ______  _______  _______  _        _______ 
