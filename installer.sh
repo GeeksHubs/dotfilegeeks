@@ -43,7 +43,7 @@ download() {
 }
 download_utils() {
     echo "Descargando utils"
-    download "$DOTFILES_UTILS_URL" $(dirname "$0") 
+    download "$DOTFILES_UTILS_URL" "/home" 
     return 1
 
 }
@@ -70,8 +70,10 @@ main()
     echo "Archivo " $(dirname $(readlink -f $0))
     
     if  [ -x "utils.sh" ]; then
+        echo "localizado"
         . $(dirname "$0")/utils.sh || exit 1
     else
+        echo "no localizado"
         download_utils || exit 1
     fi
 
