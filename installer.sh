@@ -31,7 +31,7 @@ download() {
 
     #elif command -v "wget" &> /dev/null; then
 
-        wget -qO "$output" "$url" &> /dev/null
+        wget -qO "$output" "$url" 
         #     │└─ write output to file
         #     └─ don't show output
 
