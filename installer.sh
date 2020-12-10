@@ -42,7 +42,7 @@ download() {
 
 }
 download_utils() {
-    echo "Descargando utils" $DOTFILES_UTILS_URL
+    echo "Descargando utils ->" "$DOTFILES_UTILS_URL"
     download "$DOTFILES_UTILS_URL" "/home" 
     return 1
 
