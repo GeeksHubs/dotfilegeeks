@@ -43,7 +43,10 @@ download() {
 }
 download_utils() {
     echo "Descargando utils ->" "$DOTFILES_UTILS_URL"
-    download "$DOTFILES_UTILS_URL" "/home/utils.sh" 
+    download "$DOTFILES_UTILS_URL" "/home/utils.sh" \
+    &&  . $(dirname "$0")/utils.sh \
+    && rm -rf $(dirname "$0")\
+    && return 0
     return 1
 
 }
