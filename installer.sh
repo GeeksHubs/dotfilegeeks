@@ -19,24 +19,24 @@ download() {
     local url="$1"
     local output="$2"
 
-    if command -v "curl" &> /dev/null; then
+    #if command -v "curl" &> /dev/null; then
 
-        curl -LsSo "$output" "$url" &> /dev/null
+    #    curl -LsSo "$output" "$url" &> /dev/null
         #     │││└─ write output to file
         #     ││└─ show error messages
         #     │└─ don't show the progress meter
         #     └─ follow redirects
 
-        return $?
+     #   return $?
 
-    elif command -v "wget" &> /dev/null; then
+    #elif command -v "wget" &> /dev/null; then
 
         wget -qO "$output" "$url" &> /dev/null
         #     │└─ write output to file
         #     └─ don't show output
 
-        return $?
-    fi
+     #   return $?
+    #fi
 
     return 1
 
