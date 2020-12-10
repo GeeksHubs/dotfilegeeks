@@ -42,7 +42,7 @@ download() {
 
 }
 download_utils() {
-
+    echo "Descargando utils"
     download "$DOTFILES_UTILS_URL" $(dirname "$0") 
     return 1
 
